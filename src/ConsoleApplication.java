@@ -29,7 +29,11 @@ public class ConsoleApplication implements Application{
                         t = false;
                         break;
                     case "y":
-                        writer.writeln(Arrays.toString(storage.findAll()));
+                        int[] i = new int[storage.findAll().length];
+                        for (int j = 0; j < i.length; j++) {
+                            i[j] = Integer.parseInt(String.valueOf(storage.findAll()[j]));
+                        }
+                        writer.writeln(Arrays.toString(i));
                         t = false;
                     default:
                         writer.writeln("Selection not found, try again.");
