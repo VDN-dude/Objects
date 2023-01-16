@@ -1,8 +1,8 @@
 public class ConsoleApplication implements Application{
-    Calculator calculator = new Calculator();
-    Reader reader = new ConsoleReader();
-    Writer writer = new ConsoleWriter();
-    OperationStorage storage = new InMemoryOperationStorage();
+    private Calculator calculator = new Calculator();
+    private Reader reader = new ConsoleReader();
+    private Writer writer = new ConsoleWriter();
+    private OperationStorage storage = new InMemoryOperationStorage();
     private boolean t = true;
     @Override
     public void run() {
