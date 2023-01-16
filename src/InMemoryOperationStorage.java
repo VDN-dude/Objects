@@ -5,13 +5,13 @@ public class InMemoryOperationStorage implements OperationStorage {
     private String[] operations = new String[length];
     public void save(Operation operation) {
         if (index < length) {
-            operations[index] = String.valueOf(operation.getNum1()) + " " + String.valueOf(operation.getType()) + " " + String.valueOf(operation.getNum2())+ " = " + String.valueOf(operation.getResult());
+            operations[index] = String.valueOf(operation.getNum1()) + " " + operation.getType() + " " + String.valueOf(operation.getNum2())+ " = " + String.valueOf(operation.getResult());
             index++;
         } else {
             for (int i = 0; i < length - 1; i++) {
                 operations[i] = operations[i + 1];
             }
-            operations[index-1] = String.valueOf(operation.getNum1()) + " " + String.valueOf(operation.getType()) + " " + String.valueOf(operation.getNum2())+ " = " + String.valueOf(operation.getResult());
+            operations[index-1] = String.valueOf(operation.getNum1()) + " " + operation.getType() + " " + String.valueOf(operation.getNum2())+ " = " + String.valueOf(operation.getResult());
         }
     }
     public void findAll() {
