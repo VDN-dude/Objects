@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ConsoleApplication implements Application{
     private Calculator calculator = new Calculator();
     private Reader reader = new ConsoleReader();
@@ -27,7 +29,7 @@ public class ConsoleApplication implements Application{
                         t = false;
                         break;
                     case "y":
-                        storage.findAll();
+                        writer.writeln(Arrays.toString(storage.findAll()));
                         t = false;
                     default:
                         writer.writeln("Selection not found, try again.");
