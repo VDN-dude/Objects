@@ -2,10 +2,9 @@ import java.util.Arrays;
 
 public class ConsoleApplication implements Application{
     private Calculator calculator = new Calculator();
-    private Reader reader = new ConsoleReader();
-    private Writer writer = new ConsoleWriter();
-    private OperationStorage storage = new InMemoryOperationStorage();
-    private boolean t = true;
+    private ConsoleReader reader = new ConsoleReader();
+    private ConsoleWriter writer = new ConsoleWriter();
+    ReplayerConsoleApplication replayerConsoleApplication = new ReplayerConsoleApplication();
     @Override
     public void run() {
         while (true) {
@@ -16,43 +15,10 @@ public class ConsoleApplication implements Application{
             writer.writeln("Select operation type (sum, sub, mul, div) :");
             String type = reader.readString();
 
-            Operation operation = new Operation(num1, num2, type);
+            Operation operation = new Operation(num1, num2, type.toUpperCase());
             Operation result = calculator.calculate(operation);
-            storage.save(result);
             writer.writeln("Result: " + result.getResult());
 
-            while (t) {
-                writer.writeln("Display history? [Y]es , [N]o : ");
-                String history = reader.readString();
-                switch (history) {
-                    case "n":
-                        t = false;
-                        break;
-                    case "y":
-                        int[] i = new int[storage.findAll().length];
-                        for (int j = 0; j < i.length; j++) {
-                            i[j] = Integer.parseInt(String.valueOf(storage.findAll()[j]));
-                        }
-                        writer.writeln(Arrays.toString(i));
-                        t = false;
-                    default:
-                        writer.writeln("Selection not found, try again.");
-                }
-            }
-
-            while (!t) {
-                writer.writeln("Want to continue? [Y]es , [N]o : ");
-                String replay = reader.readString();
-                switch (replay) {
-                    case "n":
-                        return;
-                    case "y":
-                        t = true;
-                        break;
-                    default:
-                        writer.writeln("Selection not found, try again.");
-                }
-            }
         }
     }
 }

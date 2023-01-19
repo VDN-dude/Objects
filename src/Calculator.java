@@ -1,13 +1,13 @@
 public class Calculator {
     public Operation calculate(Operation operation){
-        switch (operation.getType()){
-            case "sum":
+        switch (OperationTypes.SUM){
+            case SUM:
                 return operation.setResult(operation.getNum1() + operation.getNum2());
-            case "sub":
+            case SUB:
                 return operation.setResult(operation.getNum1() - operation.getNum2());
-            case "mul":
+            case MUL:
                 return operation.setResult(operation.getNum1() * operation.getNum2());
-            case "div":
+            case DIV:
                 return operation.setResult(operation.getNum1() / operation.getNum2());
         }
         return operation;
