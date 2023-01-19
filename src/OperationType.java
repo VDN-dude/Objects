@@ -1,3 +1,4 @@
 public enum OperationType {
-    SUM, SUB, MUL, DIV
+    DIV, MUL, SUB, SUM
+
 }

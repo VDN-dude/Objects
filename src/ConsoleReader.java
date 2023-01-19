@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class ConsoleReader {
-    Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public String readString() {
         return scanner.next();

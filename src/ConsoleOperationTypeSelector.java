@@ -1,6 +1,6 @@
 public class ConsoleOperationTypeSelector {
-    private ConsoleWriter writer = new ConsoleWriter();
-    private ConsoleReader reader = new ConsoleReader();
+    private final ConsoleWriter writer = new ConsoleWriter();
+    private final ConsoleReader reader = new ConsoleReader();
     private OperationType opType;
     private boolean t = true;
 

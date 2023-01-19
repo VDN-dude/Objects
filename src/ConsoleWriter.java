@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class ConsoleWriter {
-    String message;
+    private String message;
     public void write(String message) {System.out.print(message);}
     public void writeln(String message) {
         System.out.println(message);

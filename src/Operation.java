@@ -1,7 +1,7 @@
 public class Operation {
-    private double num1;
-    private double num2;
-    private OperationType type;
+    private final double num1;
+    private final double num2;
+    private final OperationType type;
     private double result;
     public Operation(double num1, double num2, OperationType type){
         this.num1 = num1;

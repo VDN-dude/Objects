@@ -1,10 +1,10 @@
 import java.util.Arrays;
 
 public class ConsoleApplication{
-    private Calculator calculator = new Calculator();
-    private ConsoleReader reader = new ConsoleReader();
-    private ConsoleWriter writer = new ConsoleWriter();
-    private  ConsoleOperationTypeSelector selector = new ConsoleOperationTypeSelector();
+    private final Calculator calculator = new Calculator();
+    private final ConsoleReader reader = new ConsoleReader();
+    private final ConsoleWriter writer = new ConsoleWriter();
+    private final ConsoleOperationTypeSelector selector = new ConsoleOperationTypeSelector();
     public void run() {
         while (true) {
             writer.writeln("Enter number 1: ");
