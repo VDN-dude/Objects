@@ -1,6 +1,6 @@
 public class Calculator {
     public Operation calculate(Operation operation){
-        switch (OperationTypes.SUM){
+        switch (operation.getType()){
             case SUM:
                 return operation.setResult(operation.getNum1() + operation.getNum2());
             case SUB:

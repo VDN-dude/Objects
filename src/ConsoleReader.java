@@ -6,7 +6,5 @@ public class ConsoleReader {
     public String readString() {
         return scanner.next();
     }
-    public double readDouble() {
-        return scanner.nextDouble();
-    }
+    public double readDouble() {return scanner.nextDouble();}
 }
