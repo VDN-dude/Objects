@@ -6,7 +6,7 @@ public class ConsoleOperationTypeSelector {
 
     public OperationType select() {
         while (t) {
-            writer.writeln("Select operation type ([1]sum, [2]sub, [3]mul, [4]div) :");
+            writer.writeln("Select operation type ([0]sum, [1]sub, [2]mul, [3]div) :");
             String type = reader.readString();
             switch (type) {
                 case "0":

@@ -26,9 +26,9 @@ public class ConsoleApplication{
                 writer.writeln("Want to continue? [0]Yes , [1]No : ");
                 String replay = reader.readString();
                 switch (replay) {
-                    case "0":
+                    case "1":
                         return;
-                    case "2":
+                    case "0":
                         t = false;
                         break;
                     default:
