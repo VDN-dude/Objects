@@ -10,7 +10,7 @@ public class InMemoryOperationStorage {
             for (int i = 0; i < length - 1; i++) {
                 operations[i] = operations[i + 1];
             }
-            operations[index-1] = operation;
+            operations[index - 1] = operation;
         }
     }
     public Operation[] findAll() {return operations;}
