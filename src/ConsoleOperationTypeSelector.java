@@ -9,19 +9,19 @@ public class ConsoleOperationTypeSelector {
             writer.writeln("Select operation type ([1]sum, [2]sub, [3]mul, [4]div) :");
             String type = reader.readString();
             switch (type) {
-                case "1":
+                case "0":
                     t = false;
                     opType = OperationType.SUM;
                     break;
-                case "2":
+                case "1":
                     t = false;
                     opType = OperationType.SUB;
                     break;
-                case "3":
+                case "2":
                     t = false;
                     opType = OperationType.MUL;
                     break;
-                case "4":
+                case "3":
                     t = false;
                     opType = OperationType.DIV;
                     break;
