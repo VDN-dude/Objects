@@ -1,6 +1,6 @@
 public class InMemoryOperationStorage {
     private int index = 0;
-    private int length = 10;
+    private final int length = 10;
     private final Operation[] operations = new Operation[length];
     public void save(Operation operation) {
         if (index < length) {
