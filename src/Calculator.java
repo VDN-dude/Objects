@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class Calculator {
     public Operation calculate(Operation operation){
         switch (operation.getType()){
@@ -13,3 +14,4 @@ public class Calculator {
         return operation;
     }
 }
+
