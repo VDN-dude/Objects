@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface OperationStorage {
     void save(Operation operation) throws IOException;
-    List<Operation> findAll();
+    List<Operation> findAll() throws FileNotFoundException;
 }

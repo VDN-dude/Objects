@@ -1,8 +1,11 @@
+import java.time.LocalDateTime;
+
 public class Operation {
     private final double num1;
     private final double num2;
     private final OperationType type;
     private double result;
+    private LocalDateTime time;
     public Operation(double num1, double num2, OperationType type){
         this.num1 = num1;
         this.num2 = num2;
@@ -22,5 +25,13 @@ public class Operation {
     public Operation setResult(double result) {
         this.result = result;
         return this;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
+
+    public LocalDateTime getTime() {
+        return time;
     }
 }

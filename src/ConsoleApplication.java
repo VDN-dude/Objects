@@ -1,13 +1,26 @@
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class ConsoleApplication{
-    private final Calculator calculator = new Calculator();
     private final ConsoleReader reader = new ConsoleReader();
     private final ConsoleWriter writer = new ConsoleWriter();
     private final ConsoleOperationTypeSelector typeSelector = new ConsoleOperationTypeSelector();
     private final OperationStorage storage = new InMemoryOperationStorage();
     private final ConsoleNumSelector numSelector = new ConsoleNumSelector();
+    private final CalculatorInt calculator = (operation) -> {
+        switch (operation.getType()) {
+            case SUM:
+                return operation.setResult(operation.getNum1() + operation.getNum2());
+            case SUB:
+                return operation.setResult(operation.getNum1() - operation.getNum2());
+            case MUL:
+                return operation.setResult(operation.getNum1() * operation.getNum2());
+            case DIV:
+                return operation.setResult(operation.getNum1() / operation.getNum2());
+        }
+        return null;
+    };
     public void run() throws IOException {
         while (true) {
             double num1 = numSelector.selectNum1();
