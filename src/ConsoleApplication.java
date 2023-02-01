@@ -19,7 +19,7 @@ public class ConsoleApplication{
             case DIV:
                 return operation.setResult(operation.getNum1() / operation.getNum2());
         }
-        return null;
+        return operation;
     };
     public void run() throws IOException {
         while (true) {
