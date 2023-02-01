@@ -1,10 +1,18 @@
 import java.util.Scanner;
 
 public class ConsoleReader {
-    private final Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     public String readString() {
         return scanner.next();
     }
-    public double readDouble() {return scanner.nextDouble();}
+    public double readDouble() throws RuntimeException{
+        while (true) {
+            try {
+                return scanner.nextDouble();
+            } catch (RuntimeException e) {
+                scanner = new Scanner(System.in);
+            }
+        }
+    }
 }

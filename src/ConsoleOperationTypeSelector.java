@@ -7,13 +7,13 @@ public class ConsoleOperationTypeSelector {
             String type = reader.readString();
             switch (type) {
                 case "0":
-                    return OperationType.valueOf("+");
+                    return OperationType.SUM;
                 case "1":
-                    return OperationType.valueOf("-");
+                    return OperationType.SUB;
                 case "2":
-                    return OperationType.valueOf("*");
+                    return OperationType.MUL;
                 case "3":
-                    return OperationType.valueOf("/");
+                    return OperationType.DIV;
                 default:
                     writer.writeln("Wrong operation, try again!");
             }
