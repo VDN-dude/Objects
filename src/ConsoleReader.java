@@ -15,4 +15,13 @@ public class ConsoleReader {
             }
         }
     }
+    public int readInt() throws RuntimeException{
+        while (true) {
+            try {
+                return scanner.nextInt();
+            } catch (RuntimeException e) {
+                scanner = new Scanner(System.in);
+            }
+        }
+    }
 }

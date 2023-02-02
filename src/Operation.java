@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Operation {
     private final double num1;
@@ -6,12 +7,22 @@ public class Operation {
     private final OperationType type;
     private double result;
     private LocalDateTime time;
+    private String formattedTime;
     public Operation(double num1, double num2, OperationType type){
         this.num1 = num1;
         this.num2 = num2;
         this.type = type;
 
     }
+
+    public Operation(double num1, OperationType type, double num2, double result, String formattedTime) {
+        this.num1 = num1;
+        this.type = type;
+        this.num2 = num2;
+        this.result = result;
+        this.formattedTime = formattedTime;
+    }
+
     public double getNum1() {
         return num1;
     }
@@ -29,9 +40,27 @@ public class Operation {
 
     public void setTime(LocalDateTime time) {
         this.time = time;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd");
+        this.formattedTime = time.format(formatter);
+
     }
 
     public LocalDateTime getTime() {
         return time;
+    }
+
+    public String getFormattedTime() {
+        return formattedTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Operation{" +
+                "num1=" + num1 +
+                ", type=" + type +
+                ", num2=" + num2 +
+                ", result=" + result +
+                ", formattedTime='" + formattedTime + '\'' +
+                '}';
     }
 }
