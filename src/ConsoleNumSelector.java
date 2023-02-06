@@ -1,4 +1,3 @@
-import java.io.IOException;
 
 public class ConsoleNumSelector {
     private final ConsoleReader reader = new ConsoleReader();
