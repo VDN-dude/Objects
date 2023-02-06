@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class ConsoleAppRepeater {
-    ConsoleApplication app = new ConsoleApplication();
+    private final ConsoleApplication app = new ConsoleApplication();
     private final ConsoleWriter writer = new ConsoleWriter();
     private final ConsoleReader reader = new ConsoleReader();
     public void repeatApp() throws IOException {
