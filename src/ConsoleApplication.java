@@ -3,6 +3,7 @@ import java.util.List;
 
 public class ConsoleApplication{
     private final Calculator calculator = new Calculator();
+    private final ConsoleReader reader = new ConsoleReader();
     private final ConsoleWriter writer = new ConsoleWriter();
     private final ConsoleOperationTypeSelector typeSelector = new ConsoleOperationTypeSelector();
     private final OperationStorage storage = new FileOperationStorage();
@@ -20,6 +21,22 @@ public class ConsoleApplication{
         List<Operation> operations = storage.findAll();
 
         shower.showHistory(operations);
+        repeat();
 
+    }
+    private void repeat() throws IOException {
+        while (true) {
+            writer.writeln("Want to continue? [0]No , [1]Yes : ");
+            int replay = reader.readInt();
+            switch (replay) {
+                case 0:
+                    return;
+                case 1:
+                    run();
+                    break;
+                default:
+                    writer.writeln("Selection not found, try again.");
+            }
+        }
     }
 }
