@@ -13,7 +13,6 @@ public class FileOperationStorage implements OperationStorage{
         fileOutputStream.write(result.getBytes());
         fileOutputStream.write(10);
         fileOutputStream.close();
-
     }
 
     @Override
