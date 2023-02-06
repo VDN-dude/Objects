@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -23,6 +24,7 @@ public class FileOperationStorage implements OperationStorage{
         while ((operations = bufferedReader.readLine()) != null){
             operationList.add(convertToOperation(operations));
         }
+        Collections.reverse(operationList);
         return operationList;
     }
     private Operation convertToOperation(String operation) {
