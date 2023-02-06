@@ -8,7 +8,8 @@ public class InMemoryOperationStorage implements OperationStorage {
         operations.add(operation);
     }
     public List<Operation> findAll() {
-        Collections.reverse(operations);
-        return operations;
+        List<Operation> operationList = new ArrayList<>(operations);
+        Collections.reverse(operationList);
+        return operationList;
     }
 }
