@@ -15,12 +15,12 @@ public class Operation {
 
     }
 
-    public Operation(double num1, OperationType type, double num2, double result, String formattedTime) {
+    public Operation(double num1, OperationType type, double num2, double result, LocalDateTime time) {
         this.num1 = num1;
         this.type = type;
         this.num2 = num2;
         this.result = result;
-        this.formattedTime = formattedTime;
+        this.time = time;
     }
 
     public double getNum1() {
@@ -38,19 +38,10 @@ public class Operation {
         return this;
     }
 
-    public void setTime(LocalDateTime time) {
-        this.time = time;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd");
-        this.formattedTime = time.format(formatter);
-
-    }
+    public void setTime(LocalDateTime time) {this.time = time;}
 
     public LocalDateTime getTime() {
         return time;
-    }
-
-    public String getFormattedTime() {
-        return formattedTime;
     }
 
     @Override

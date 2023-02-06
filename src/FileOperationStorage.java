@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,7 +8,7 @@ public class FileOperationStorage implements OperationStorage{
 
     @Override
     public void save(Operation operation) throws IOException {
-        String result = String.format("%s,%s,%s,%s,%s",operation.getNum1(), operation.getType(), operation.getNum2(), operation.getResult(),operation.getFormattedTime());
+        String result = String.format("%s,%s,%s,%s,%s",operation.getNum1(), operation.getType(), operation.getNum2(), operation.getResult(),operation.getTime());
         FileOutputStream fileOutputStream = new FileOutputStream("history.csv", true);
         fileOutputStream.write(result.getBytes());
         fileOutputStream.write(10);
@@ -31,6 +32,7 @@ public class FileOperationStorage implements OperationStorage{
         OperationType type = OperationType.valueOf(s[1]);
         double num2 = Double.parseDouble(s[2]);
         double result = Double.parseDouble(s[3]);
-        return new Operation(num1, type, num2, result, s[4]);
+        LocalDateTime time = LocalDateTime.parse(s[4]);
+        return new Operation(num1, type, num2, result, time);
     }
 }
