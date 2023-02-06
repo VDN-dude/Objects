@@ -1,13 +1,10 @@
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 public class Operation {
     private final double num1;
     private final double num2;
     private final OperationType type;
     private double result;
     private LocalDateTime time;
-    private String formattedTime;
     public Operation(double num1, double num2, OperationType type){
         this.num1 = num1;
         this.num2 = num2;
@@ -37,21 +34,6 @@ public class Operation {
         this.result = result;
         return this;
     }
-
     public void setTime(LocalDateTime time) {this.time = time;}
-
-    public LocalDateTime getTime() {
-        return time;
-    }
-
-    @Override
-    public String toString() {
-        return "Operation{" +
-                "num1=" + num1 +
-                ", type=" + type +
-                ", num2=" + num2 +
-                ", result=" + result +
-                ", formattedTime='" + formattedTime + '\'' +
-                '}';
-    }
+    public LocalDateTime getTime() {return time;}
 }
