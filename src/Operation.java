@@ -11,7 +11,6 @@ public class Operation {
         this.type = type;
 
     }
-
     public Operation(double num1, OperationType type, double num2, double result, LocalDateTime time) {
         this.num1 = num1;
         this.type = type;

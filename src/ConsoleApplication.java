@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class ConsoleApplication{
     private final Calculator calculator = new Calculator();
@@ -9,34 +11,46 @@ public class ConsoleApplication{
     private final OperationStorage storage = new FileOperationStorage();
     private final ConsoleNumSelector numSelector = new ConsoleNumSelector();
     private final HistoryShower shower = new HistoryShower();
-    public void run() throws IOException {
-        double num1 = numSelector.selectNum1();
-        double num2 = numSelector.selectNum2();
-        OperationType type = typeSelector.select();
+    public void run() {
+        boolean t = true;
+        while (t) {
+            writer.writeln("Enter number 1: ");
+            double num1 = numSelector.selectNum();
+            writer.writeln("Enter number 2: ");
+            double num2 = numSelector.selectNum();
+            OperationType type = typeSelector.select();
 
-        Operation operation = new Operation(num1, num2, type);
-        Operation result = calculator.calculate(operation);
-        storage.save(result);
-        writer.writeln("Result: " + result.getResult());
-        List<Operation> operations = storage.findAll();
+            Operation operation = new Operation(num1, num2, type);
+            Optional<Operation> result = calculator.calculate(operation);
+            List<Operation> operations;
 
-        shower.showHistory(operations);
-        repeat();
+            try {
+                storage.save(result.get());
+                operations = storage.findAll();
+            } catch (IOException e) {
+                writer.writeln("File not found.");
+                continue;
+            }
 
+            writer.writeln("Result: " + result);
+
+            shower.showHistory(operations);
+            t = repeat();
+        }
     }
-    private void repeat() throws IOException {
+    public boolean repeat(){
         while (true) {
             writer.writeln("Want to continue? [0]No , [1]Yes : ");
-            int replay = reader.readInt();
+            String replay = reader.readString();
             switch (replay) {
-                case 0:
-                    return;
-                case 1:
-                    run();
-                    break;
+                case "0":
+                    return false;
+                case "1":
+                    return true;
                 default:
                     writer.writeln("Selection not found, try again.");
             }
         }
     }
 }
+

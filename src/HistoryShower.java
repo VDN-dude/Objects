@@ -7,11 +7,11 @@ public class HistoryShower {
     public void showHistory(List<Operation> operations) {
         while (true) {
             writer.writeln("Want to see history? [0]No , [1]Yes : ");
-            int history = reader.readInt();
+            String history = reader.readString();
             switch (history) {
-                case 0:
+                case "0":
                     return;
-                case 1:
+                case "1":
                     writer.writeOpSt(operations);
                     return;
                 default:
