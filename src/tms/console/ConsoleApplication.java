@@ -4,7 +4,7 @@ import tms.*;
 import tms.console.util.*;
 import tms.entity.Operation;
 import tms.entity.OperationType;
-import tms.service.Calculator;
+import tms.service.CalculatorService;
 import tms.storage.FileOperationStorage;
 import tms.storage.OperationStorage;
 import tms.util.Reader;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ConsoleApplication implements Application {
-    private final Calculator calculator = new Calculator();
+    private final CalculatorService calculator = new CalculatorService();
     private final Reader reader = new ConsoleReader();
     private final Writer writer = new ConsoleWriter();
     private final ConsoleOperationTypeSelector typeSelector = new ConsoleOperationTypeSelector();
@@ -43,7 +43,7 @@ public class ConsoleApplication implements Application {
                 continue;
             }
 
-            writer.writeln("Result: " + result);
+            writer.writeln("Result: " + result.get().getResult());
 
             shower.showHistory(operations);
             t = repeat();

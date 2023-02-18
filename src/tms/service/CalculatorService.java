@@ -5,7 +5,7 @@ import tms.entity.Operation;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-public class Calculator {
+public class CalculatorService {
     public Optional<Operation> calculate(Operation operation){
         switch (operation.getType()){
             case SUM:

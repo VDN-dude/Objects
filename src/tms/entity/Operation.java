@@ -1,7 +1,7 @@
 package tms.entity;
 
 import java.time.LocalDateTime;
-public class Operation {
+public class Operation implements Comparable<Operation>{
     private final double num1;
     private final double num2;
     private final OperationType type;
@@ -37,4 +37,14 @@ public class Operation {
     }
     public void setTime(LocalDateTime time) {this.time = time;}
     public LocalDateTime getTime() {return time;}
+
+    @Override
+    public int compareTo(Operation o) {
+        if (this.getTime().isBefore(o.getTime())) {
+            return 1;
+        } else if (this.getTime().isAfter(o.getTime())){
+            return -1;
+        }
+        return 0;
+    }
 }

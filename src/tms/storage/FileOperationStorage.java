@@ -6,8 +6,9 @@ import tms.entity.Operation;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FileOperationStorage implements OperationStorage {
 
@@ -28,7 +29,8 @@ public class FileOperationStorage implements OperationStorage {
         while ((operations = bufferedReader.readLine()) != null){
             operationList.add(convertToOperation(operations));
         }
-        Collections.reverse(operationList);
+        Stream<Operation> stream = operationList.stream();
+        operationList = stream.sorted().collect(Collectors.toList());
         return operationList;
     }
     private Operation convertToOperation(String operation) {
