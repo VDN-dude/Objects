@@ -1,16 +1,27 @@
+package tms.console;
+
+import tms.*;
+import tms.console.util.*;
+import tms.entity.Operation;
+import tms.entity.OperationType;
+import tms.service.Calculator;
+import tms.storage.FileOperationStorage;
+import tms.storage.OperationStorage;
+import tms.util.Reader;
+import tms.util.Writer;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
-public class ConsoleApplication{
+public class ConsoleApplication implements Application {
     private final Calculator calculator = new Calculator();
-    private final ConsoleReader reader = new ConsoleReader();
-    private final ConsoleWriter writer = new ConsoleWriter();
+    private final Reader reader = new ConsoleReader();
+    private final Writer writer = new ConsoleWriter();
     private final ConsoleOperationTypeSelector typeSelector = new ConsoleOperationTypeSelector();
     private final OperationStorage storage = new FileOperationStorage();
     private final ConsoleNumSelector numSelector = new ConsoleNumSelector();
-    private final HistoryShower shower = new HistoryShower();
+    private final ConsoleHistoryShower shower = new ConsoleHistoryShower();
     public void run() {
         boolean t = true;
         while (t) {

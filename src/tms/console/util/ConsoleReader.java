@@ -1,10 +1,15 @@
+package tms.console.util;
+
+import tms.util.Reader;
+
 import java.util.Scanner;
 
-public class ConsoleReader {
+public class ConsoleReader implements Reader {
     private final Scanner scanner = new Scanner(System.in);
-
+    @Override
     public String readString() {
         return scanner.next();
     }
+    @Override
     public double readDouble() throws RuntimeException{return scanner.nextDouble();}
 }

@@ -1,3 +1,8 @@
+package tms.console;
+
+import tms.console.util.ConsoleReader;
+import tms.console.util.ConsoleWriter;
+
 public class ConsoleNumSelector {
     private ConsoleReader reader = new ConsoleReader();
     private final ConsoleWriter writer = new ConsoleWriter();

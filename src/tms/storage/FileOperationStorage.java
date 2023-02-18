@@ -1,10 +1,15 @@
+package tms.storage;
+
+import tms.entity.OperationType;
+import tms.entity.Operation;
+
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class FileOperationStorage implements OperationStorage{
+public class FileOperationStorage implements OperationStorage {
 
     @Override
     public void save(Operation operation) throws IOException {

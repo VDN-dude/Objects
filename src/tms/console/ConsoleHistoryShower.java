@@ -1,6 +1,12 @@
+package tms.console;
+
+import tms.console.util.ConsoleReader;
+import tms.console.util.ConsoleWriter;
+import tms.entity.Operation;
+
 import java.util.List;
 
-public class HistoryShower {
+public class ConsoleHistoryShower {
     private final ConsoleReader reader = new ConsoleReader();
     private final ConsoleWriter writer = new ConsoleWriter();
 

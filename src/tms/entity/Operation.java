@@ -1,3 +1,5 @@
+package tms.entity;
+
 import java.time.LocalDateTime;
 public class Operation {
     private final double num1;

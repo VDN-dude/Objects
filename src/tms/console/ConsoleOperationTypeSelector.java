@@ -1,3 +1,9 @@
+package tms.console;
+
+import tms.console.util.ConsoleReader;
+import tms.console.util.ConsoleWriter;
+import tms.entity.OperationType;
+
 public class ConsoleOperationTypeSelector {
     private final ConsoleWriter writer = new ConsoleWriter();
     private final ConsoleReader reader = new ConsoleReader();
