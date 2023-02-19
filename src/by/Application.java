@@ -1,4 +1,4 @@
-package tms;
+package by;
 
 public interface Application {
     void run();

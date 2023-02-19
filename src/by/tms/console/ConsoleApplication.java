@@ -1,14 +1,14 @@
-package tms.console;
+package by.tms.console;
 
-import tms.*;
-import tms.console.util.*;
-import tms.entity.Operation;
-import tms.entity.OperationType;
-import tms.service.CalculatorService;
-import tms.storage.FileOperationStorage;
-import tms.storage.OperationStorage;
-import tms.util.Reader;
-import tms.util.Writer;
+import by.Application;
+import by.tms.console.util.*;
+import by.tms.entity.Operation;
+import by.tms.entity.OperationType;
+import by.tms.service.CalculatorService;
+import by.tms.storage.FileOperationStorage;
+import by.tms.storage.OperationStorage;
+import by.tms.util.Reader;
+import by.tms.util.Writer;
 
 import java.io.IOException;
 import java.util.List;

@@ -1,7 +1,7 @@
-package tms.console.util;
+package by.tms.console.util;
 
-import tms.entity.Operation;
-import tms.util.Writer;
+import by.tms.entity.Operation;
+import by.tms.util.Writer;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;

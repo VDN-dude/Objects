@@ -1,8 +1,8 @@
-package tms.console;
+package by.tms.console;
 
-import tms.console.util.ConsoleReader;
-import tms.console.util.ConsoleWriter;
-import tms.entity.OperationType;
+import by.tms.console.util.ConsoleReader;
+import by.tms.console.util.ConsoleWriter;
+import by.tms.entity.OperationType;
 
 public class ConsoleOperationTypeSelector {
     private final ConsoleWriter writer = new ConsoleWriter();

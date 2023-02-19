@@ -1,7 +1,6 @@
-package tms.storage;
+package by.tms.storage;
 
-import tms.entity.Operation;
-import tms.storage.OperationStorage;
+import by.tms.entity.Operation;
 
 import java.util.ArrayList;
 import java.util.Collections;

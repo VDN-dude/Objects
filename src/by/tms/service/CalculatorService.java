@@ -1,6 +1,6 @@
-package tms.service;
+package by.tms.service;
 
-import tms.entity.Operation;
+import by.tms.entity.Operation;
 
 import java.time.LocalDateTime;
 import java.util.Optional;

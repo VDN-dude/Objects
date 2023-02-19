@@ -1,4 +1,4 @@
-package tms.entity;
+package by.tms.entity;
 
 import java.time.LocalDateTime;
 public class Operation implements Comparable<Operation>{

@@ -1,8 +1,8 @@
-package tms.console;
+package by.tms.console;
 
-import tms.console.util.ConsoleReader;
-import tms.console.util.ConsoleWriter;
-import tms.entity.Operation;
+import by.tms.console.util.ConsoleReader;
+import by.tms.console.util.ConsoleWriter;
+import by.tms.entity.Operation;
 
 import java.util.List;
 
