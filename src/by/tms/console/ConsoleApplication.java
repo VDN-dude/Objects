@@ -5,7 +5,7 @@ import by.tms.console.util.*;
 import by.tms.entity.Operation;
 import by.tms.entity.OperationType;
 import by.tms.service.CalculatorService;
-import by.tms.storage.FileOperationStorage;
+import by.tms.storage.JDBCOperationStorage;
 import by.tms.storage.OperationStorage;
 import by.tms.util.Reader;
 import by.tms.util.Writer;
@@ -19,7 +19,7 @@ public class ConsoleApplication implements Application {
     private final Reader reader = new ConsoleReader();
     private final Writer writer = new ConsoleWriter();
     private final ConsoleOperationTypeSelector typeSelector = new ConsoleOperationTypeSelector();
-    private final OperationStorage storage = new FileOperationStorage();
+    private final OperationStorage storage = new JDBCOperationStorage();
     private final ConsoleNumSelector numSelector = new ConsoleNumSelector();
     private final ConsoleHistoryShower shower = new ConsoleHistoryShower();
     public void run() {
@@ -35,8 +35,16 @@ public class ConsoleApplication implements Application {
             Optional<Operation> result = calculator.calculate(operation);
             List<Operation> operations;
 
+            Thread thread = new Thread(() -> {
+                try {
+                    storage.save(result.get());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+            thread.start();
+
             try {
-                storage.save(result.get());
                 operations = storage.findAll();
             } catch (IOException e) {
                 writer.writeln("File not found.");
