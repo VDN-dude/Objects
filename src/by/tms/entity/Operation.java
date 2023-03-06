@@ -21,6 +21,14 @@ public class Operation implements Comparable<Operation>{
         this.time = time;
     }
 
+    public Operation(int id, double num1, OperationType type, double num2, double result, LocalDateTime time) {
+        this.num1 = num1;
+        this.type = type;
+        this.num2 = num2;
+        this.result = result;
+        this.time = time;
+    }
+
     public double getNum1() {
         return num1;
     }
