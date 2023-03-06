@@ -6,9 +6,8 @@ import by.tms.entity.OperationType;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class JDBCOperationStorage implements OperationStorage {
     private final Connection connection;
@@ -45,7 +44,7 @@ public class JDBCOperationStorage implements OperationStorage {
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from operation");
             List<Operation> operationList = new ArrayList<>();
-            while(resultSet.next()){
+            while(resultSet.next()) {
                 int id = resultSet.getInt(1);
                 double num1 = resultSet.getDouble(2);
                 String type = resultSet.getString(3);
@@ -54,9 +53,8 @@ public class JDBCOperationStorage implements OperationStorage {
                 LocalDateTime time = resultSet.getTimestamp(6).toLocalDateTime();
                 Operation operation = new Operation(id, num1, OperationType.valueOf(type), num2, result, time);
                 operationList.add(operation);
-                Stream<Operation> stream = operationList.stream();
-                operationList = stream.sorted().collect(Collectors.toList());
             }
+            Collections.sort(operationList);
             return operationList;
         } catch (SQLException e){
             throw new RuntimeException();
