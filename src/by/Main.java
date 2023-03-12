@@ -1,10 +1,16 @@
 package by;
 
-import by.tms.console.ConsoleApplication;
+import by.tms.http.HttpApplication;
+
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args){
-        ConsoleApplication app = new ConsoleApplication();
-        app.run();
+        Application app = new HttpApplication();
+        try {
+            app.run();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
